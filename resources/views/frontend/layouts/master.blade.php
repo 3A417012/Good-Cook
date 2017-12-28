@@ -56,6 +56,7 @@
                 <input class="form-control mr-sm-1 col-sm-4" type="text" placeholder="帳號" aria-label="帳號">
                 <input class="form-control mr-sm-1 col-sm-4" type="password" placeholder="密碼" aria-label="密碼">
                 <button class="btn btn-outline my-2 my-sm-0" style="background:#f1f1f1;" type="submit">登入</button>
+                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" type="submit">註冊</button>
             </form>
         </div>
     </div>
