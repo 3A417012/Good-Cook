@@ -33,6 +33,9 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color:#f1f1f1;"><h5>Good Cook</h5></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="#" style="color:#f1f1f1;">清粥小菜</a>
                 </li>
                 <li class="nav-item active">
