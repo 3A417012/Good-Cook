@@ -11,7 +11,7 @@
                 </form>
             </div>
             <div class="add-food col-md-1">
-                {{--<button type="button" class="btn btn-secondary my-sm-3">新增食譜</button>--}}
+                <button type="button" class="btn btn-secondary my-sm-3" onclick="location.href='{{route('admin.post.add')}}';return false;">新增食譜</button>
             </div>
         </div>
     </div>

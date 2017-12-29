@@ -11,11 +11,19 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('frontend.index');
-//});
+
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
+
+
+
+Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
+
+Route::get('/admin/post/add', 'Admin\HomeController@postadd')->name('admin.post.add');
+
+Route::get('/admin/ingredient/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
+Route::get('/admin/ingredient/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');

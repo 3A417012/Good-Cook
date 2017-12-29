@@ -17,9 +17,7 @@ class CreateIngredientsTable extends Migration
             $table->increments('id');
             $table->string("name");
             $table->char('unit');
-            $table->string('logo_pic');
             $table->integer('heat');
-            $table->string("description");
             $table->timestamps();
         });
     }

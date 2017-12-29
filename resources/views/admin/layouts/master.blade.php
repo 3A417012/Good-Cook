@@ -19,62 +19,51 @@
             background: #eceaeb;
             height: 1280px;
         }
+
         @yield("style")
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background: #f78d29;">
     <div class="container">
-        {{--<a class="navbar-brand" href="#">Navbar</a>--}}
-        {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">--}}
-        {{--<span class="navbar-toggler-icon"></span>--}}
-        {{--</button>--}}
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse col-md-2" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route("home")}}" style="color:#f1f1f1;"><h5>Good Cook</h5></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">清粥小菜</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">台灣料理</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">美式料理</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#f1f1f1;">食材</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">高麗菜</a>
-                        <a class="dropdown-item" href="#">青江菜</a>
-                    </div>
-                </li>
             </ul>
-            @if(Auth::user())
-                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>
+        </div>
+        <div class="col-md-7"></div>
+        <div class="col-md-2">
+            <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>
 
-                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="document.getElementById('logout-form').submit();">登出</button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            @else
-                <form id="login" class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login') }}" data-container="body" data-toggle="popover" data-placement="bottom" data-content="帳號或密碼有誤!">
-                    {{ csrf_field() }}
-                    <input class="form-control mr-sm-1 col-sm-4" type="text" placeholder="帳號" aria-label="帳號" id="email" type="email" name="email" value="{{ old('email') }}" required>
-
-                    <input class="form-control mr-sm-1 col-sm-4" type="password" placeholder="密碼" aria-label="密碼" id="password" type="password" name="password" required>
-                    <button class="btn btn-outline my-2 my-sm-0" style="background:#f1f1f1;" type="submit">登入</button>
-                    <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="location.href='{{route('register')}}';return false;">註冊</button>
-                </form>
-            @endif
+            <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="document.getElementById('logout-form').submit();">登出</button>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
     </div>
 </nav>
 <div class="clear-fix"></div>
 <div class="inner">
-    @yield("inner")
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action">食譜文章管理</li>
+                    <li class="list-group-item list-group-item-action">會員管理</li>
+                    <li class="list-group-item list-group-item-action" onclick="location.href='{{route('admin.ingredient.list')}}';return false;">食材管理</li>
+                    <li class="list-group-item list-group-item-action">Porta ac consectetur ac</li>
+                    <li class="list-group-item list-group-item-action">Vestibulum at eros</li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                @yield("inner")
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

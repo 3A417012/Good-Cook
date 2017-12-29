@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-4">
                 <ul class="list-group">
-                    <li class="list-group-item active">熱門精選</li>
+                    <li class="list-group-item active" style="background: #f78d29;border-color:#f78d29;">熱門精選</li>
                     <li class="list-group-item">Dapibus ac facilisis in</li>
                     <li class="list-group-item">Morbi leo risus</li>
                     <li class="list-group-item">Porta ac consectetur ac</li>
