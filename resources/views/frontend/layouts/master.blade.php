@@ -53,7 +53,12 @@
                 </li>
             </ul>
             @if(Auth::user())
+                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>
 
+                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="document.getElementById('logout-form').submit();">登出</button>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             @else
                 <form id="login" class="form-inline my-2 my-lg-0" method="POST" action="{{ route('login') }}" data-container="body" data-toggle="popover" data-placement="bottom" data-content="帳號或密碼有誤!">
                     {{ csrf_field() }}
