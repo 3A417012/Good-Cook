@@ -32,6 +32,6 @@ class HomeController extends Controller
         $ingredient->heat = $request->heat;
         $ingredient->save();
 
-        return redirect()->to("home");
+        return redirect()->route("/admin/ingredient/add");
     }
 }
