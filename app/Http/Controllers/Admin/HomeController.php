@@ -3,26 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 
-use App\User;
-
 use App\Ingredient;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
-class HomeController extends Controller
+class HomeController extends AdminController
 {
     //
-    protected $user;
-
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            $this->user= Auth::user();
-            return $next($request);
-        });
-    }
 
     public function index(){
         return view("admin.index");

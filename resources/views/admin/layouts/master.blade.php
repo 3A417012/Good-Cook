@@ -51,11 +51,9 @@
         <div class="row">
             <div class="col-md-3">
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action">食譜文章管理</li>
-                    <li class="list-group-item list-group-item-action">會員管理</li>
-                    <li class="list-group-item list-group-item-action" onclick="location.href='{{route('admin.ingredient.list')}}';return false;">食材管理</li>
-                    <li class="list-group-item list-group-item-action">Porta ac consectetur ac</li>
-                    <li class="list-group-item list-group-item-action">Vestibulum at eros</li>
+                    @foreach($list as $name => $url)
+                        <li class="list-group-item list-group-item-action" onclick="location.href='{{route($url)}}';return false;">{{$name}}</li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-md-9">

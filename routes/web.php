@@ -30,9 +30,19 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 
     Route::get('/post/add', 'Admin\HomeController@postadd')->name('admin.post.add');
 
+    Route::group(['prefix' => 'member'], function()
+    {
+        Route::get('/list', 'Admin\HomeController@memberlist')->name('admin.member.list');
+    });
+
+    Route::group(['prefix' => 'ingredient'], function()
+    {
+        Route::get('/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
+        Route::get('/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
+        Route::post('/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
+    });
 });
 
 
-Route::get('/ingredient/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
-Route::get('/ingredient/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
-Route::post('/admin/ingredient/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
+
+
