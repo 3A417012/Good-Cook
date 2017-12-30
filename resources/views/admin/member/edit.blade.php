@@ -19,15 +19,15 @@
                             </div>
                             <div class="form-g col-md-6">
                                 <div class="form-group">
-                                    <label for="disabledSelect">食材名稱</label>
+                                    <label for="disabledSelect">姓名</label>
                                     <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="食材">
                                 </div>
                                 <div class="form-group">
-                                    <label for="disabledSelect">食材單位</label>
+                                    <label for="disabledSelect">Email</label>
                                     <input type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="EX:顆,個,公克...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="disabledSelect">每單位/熱量</label>
+                                    <label for="disabledSelect">等級</label>
                                     <input type="text" name="heat" class="form-control" id="formGroupExampleInput" placeholder="EX:500卡">
                                 </div>
 

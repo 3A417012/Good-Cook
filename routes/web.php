@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 
     Route::group(['prefix' => 'member'], function()
     {
-        Route::get('/list', 'Admin\HomeController@memberlist')->name('admin.member.list');
+        Route::get('/list', 'Admin\MemberController@index')->name('admin.member.list');
     });
 
     Route::group(['prefix' => 'ingredient'], function()

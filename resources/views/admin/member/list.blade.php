@@ -19,30 +19,21 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>食材名稱</th>
-                            <th>食材單位</th>
-                            <th>每單位/卡</th>
+                            <th>姓名</th>
+                            <th>email</th>
+                            <th>等級</th>
                             <th>選項</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">高麗菜</th>
-                            <td>顆</td>
-                            <td>1200</td>
-                            <td><span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/edit-button.png")}}"> </span> <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                            @foreach($users as $user)
+                                <tr>
+                                    <th scope="row">{{$user->name}}</th>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->levelname}}</td>
+                                    <td><span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/edit-button.png")}}"> </span> <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
