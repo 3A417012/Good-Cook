@@ -27,5 +27,6 @@ Route::get('/admin/post/add', 'Admin\HomeController@postadd')->name('admin.post.
 
 Route::get('/admin/ingredient/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
 Route::get('/admin/ingredient/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
+Route::get('/admin/ingredient/edit', 'Admin\HomeController@ingredientedit')->name('admin.ingredient.edit');
 
 Route::post('/admin/ingredient/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
