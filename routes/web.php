@@ -21,9 +21,14 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 
-Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
 
-Route::get('/admin/post/add', 'Admin\HomeController@postadd')->name('admin.post.add');
 
-Route::get('/admin/ingredient/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
-Route::get('/admin/ingredient/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
+Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
+{
+    Route::get('/', 'Admin\HomeController@index')->name('admin.home');
+
+    Route::get('/post/add', 'Admin\HomeController@postadd')->name('admin.post.add');
+
+    Route::get('/ingredient/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
+    Route::get('/ingredient/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
+});
