@@ -23,4 +23,8 @@ class HomeController extends Controller
     public function ingredientadd(){
         return view("admin.ingredient.edit");
     }
+
+    public function ingredientstore(){
+        return view("admin.ingredient.edit");
+    }
 }
