@@ -18,7 +18,8 @@ class HomeController extends Controller
     }
 
     public function ingredientlist(){
-        return view("admin.ingredient.list");
+        $ingredients = Ingredient::all();
+        return view("admin.ingredient.list")->with("ingredients",$ingredients);
     }
 
     public function ingredientadd(){
@@ -32,6 +33,6 @@ class HomeController extends Controller
         $ingredient->heat = $request->heat;
         $ingredient->save();
 
-        return redirect()->route("/admin/ingredient/add");
+        return redirect()->route("admin.ingredient.add");
     }
 }
