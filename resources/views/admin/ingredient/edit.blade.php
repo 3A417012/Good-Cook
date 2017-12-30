@@ -11,7 +11,7 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-                    <form action="{{route("admin.ingredient.store")}}" method="post" >
+                    <form action="{{route("admin.ingredient.update",$ingredient->id)}}" method="post" >
                         {{csrf_field()}}
                         <div class="row">
                             <div class="upload-logo col-md-6">
@@ -20,15 +20,15 @@
                             <div class="form-g col-md-6">
                                 <div class="form-group">
                                     <label for="disabledSelect">食材名稱</label>
-                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="食材">
+                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="食材" value="{{$ingredient->name}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledSelect">食材單位</label>
-                                    <input type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="EX:顆,個,公克...">
+                                    <input type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="EX:顆,個,公克..." value="{{$ingredient->unit}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledSelect">每單位/熱量</label>
-                                    <input type="text" name="heat" class="form-control" id="formGroupExampleInput" placeholder="EX:500卡">
+                                    <input type="text" name="heat" class="form-control" id="formGroupExampleInput" placeholder="EX:500卡" value="{{$ingredient->heat}}">
                                 </div>
 
                             </div>

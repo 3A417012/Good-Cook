@@ -32,7 +32,7 @@
                                 <td>{{$ingredient->unit}}</td>
                                 <td>{{$ingredient->heat}}</td>
                                 <td>
-                                    <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/edit-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.ingredient.edit',$ingredient->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
                                     <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span>
                                 </td>
                             </tr>
