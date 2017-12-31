@@ -27,6 +27,13 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     Route::group(['prefix' => 'member'], function()
     {
         Route::get('/list', 'Admin\MemberController@index')->name('admin.member.list');
+        Route::get('/add', 'Admin\MemberController@add')->name('admin.member.add');
+    });
+
+    Route::group(['prefix' => 'cate'], function()
+    {
+        Route::get('/list', 'Admin\MemberController@index')->name('admin.member.list');
+        Route::get('/add', 'Admin\MemberController@add')->name('admin.member.add');
     });
 
     Route::group(['prefix' => 'ingredient'], function()

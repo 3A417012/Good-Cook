@@ -17,5 +17,7 @@ class MemberController extends AdminController
         return view("admin.member.list")->with("users",$users);
     }
 
-
+    public function add(){
+        return view("admin.member.edit");
+    }
 }
