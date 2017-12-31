@@ -17,7 +17,5 @@ class MemberController extends AdminController
         return view("admin.member.list")->with("users",$users);
     }
 
-    public function getLevel($user){
-        return $this->level[$user->level]["name"];
-    }
+
 }

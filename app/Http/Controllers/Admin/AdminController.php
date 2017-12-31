@@ -48,6 +48,8 @@ class AdminController extends Controller
         });
     }
 
-
+    public function getLevel($user){
+        return $this->level[$user->level]["name"];
+    }
 
 }

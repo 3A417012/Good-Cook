@@ -26,23 +26,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">高麗菜</th>
-                            <td>顆</td>
-                            <td>1200</td>
-                            <td><span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/edit-button.png")}}"> </span> <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        @foreach($ingredients as $ingredient)
+                            <tr>
+                                <td scope="row">{{$ingredient->name}}</td>
+                                <td>{{$ingredient->unit}}</td>
+                                <td>{{$ingredient->heat}}</td>
+                                <td>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.ingredient.edit',$ingredient->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
