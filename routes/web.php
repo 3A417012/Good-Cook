@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 {
     Route::get('/', 'Admin\HomeController@index')->name('admin.home');
@@ -33,6 +34,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
         Route::get('/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
         Route::get('/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
         Route::post('/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
+        Route::get('/edit/{id}', 'Admin\HomeController@ingredientedit')->name('admin.ingredient.edit');
+        Route::post('/update/{id}', 'Admin\HomeController@ingredientupdate')->name('admin.ingredient.update');
     });
 });
 
