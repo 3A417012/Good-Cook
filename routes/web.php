@@ -28,6 +28,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     {
         Route::get('/list', 'Admin\MemberController@index')->name('admin.member.list');
         Route::get('/add', 'Admin\MemberController@add')->name('admin.member.add');
+        Route::post('/store','Admin\MemberController@store')->name('admin.member.store');
+        Route::get('/edit/{id}', 'Admin\MemberController@edit')->name('admin.member.edit');
+        Route::post('/update/{id}', 'Admin\MemberController@update')->name('admin.member.update');
+        Route::get('/delete/{id}', 'Admin\MemberController@delete')->name('admin.member.delete');
     });
 
     Route::group(['prefix' => 'cate'], function()
