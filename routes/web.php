@@ -34,6 +34,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     {
         Route::get('/list', 'Admin\CateController@index')->name('admin.cate.list');
         Route::get('/add', 'Admin\CateController@add')->name('admin.cate.add');
+        Route::post('/store','Admin\CateController@store')->name('admin.cate.store');
+        Route::get('/edit/{id}', 'Admin\CateController@edit')->name('admin.cate.edit');
+        Route::post('/update/{id}', 'Admin\CateController@update')->name('admin.cate.update');
+        Route::get('/delete/{id}', 'Admin\CateController@delete')->name('admin.cate.delete');
     });
 
     Route::group(['prefix' => 'ingredient'], function()

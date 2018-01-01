@@ -15,7 +15,12 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.ingredient.add')}}';return false;">新增食材</button>
+                    @if(session("message"))
+                        <div class="alert alert-warning" role="alert">
+                            <strong>{{session("message")}}</strong>
+                        </div>
+                    @endif
+                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.cate.add')}}';return false;">新增分類</button>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -32,8 +37,8 @@
                                 <td>{{$cate->name}}</td>
                                 <td>{{$cate->description}}</td>
                                 <td>
-                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.ingredient.edit',$ingredient->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
-                                    <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.edit',$cate->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.delete',$cate->id)}}'" src="{{asset("images/icon/delete-button.png")}}"></span>
                                 </td>
                             </tr>
                         @endforeach
