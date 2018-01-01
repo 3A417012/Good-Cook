@@ -32,8 +32,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 
     Route::group(['prefix' => 'cate'], function()
     {
-        Route::get('/list', 'Admin\MemberController@index')->name('admin.member.list');
-        Route::get('/add', 'Admin\MemberController@add')->name('admin.member.add');
+        Route::get('/list', 'Admin\CateController@index')->name('admin.cate.list');
+        Route::get('/add', 'Admin\CateController@add')->name('admin.cate.add');
     });
 
     Route::group(['prefix' => 'ingredient'], function()
@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
         Route::post('/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
         Route::get('/edit/{id}', 'Admin\HomeController@ingredientedit')->name('admin.ingredient.edit');
         Route::post('/update/{id}', 'Admin\HomeController@ingredientupdate')->name('admin.ingredient.update');
+        Route::get('/delete/{id}', 'Admin\HomeController@ingredientdelete')->name('admin.ingredient.delete');
     });
 });
 
