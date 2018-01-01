@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
         Route::post('/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
         Route::get('/edit/{id}', 'Admin\HomeController@ingredientedit')->name('admin.ingredient.edit');
         Route::post('/update/{id}', 'Admin\HomeController@ingredientupdate')->name('admin.ingredient.update');
+        Route::get('/delete/{id}', 'Admin\HomeController@ingredientdelete')->name('admin.ingredient.delete');
     });
 });
 

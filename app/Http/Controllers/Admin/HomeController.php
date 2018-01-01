@@ -37,7 +37,7 @@ class HomeController extends AdminController
         $ingredient->unit = $request->unit;
         $ingredient->heat = $request->heat;
         $ingredient->save();
-        return redirect()->route("admin.ingredient.add");
+        return redirect()->route("admin.ingredient.list");
     }
 
     public function ingredientedit($id){
@@ -51,6 +51,12 @@ class HomeController extends AdminController
         $ingredient->unit = $request->unit;
         $ingredient->heat = $request->heat;
         $ingredient->save();
+        return redirect()->route("admin.ingredient.list");
+    }
+
+    public function ingredientdelete($id,Request $request){
+        $ingredient = Ingredient::find($id);
+        $ingredient ->delete();
         return redirect()->route("admin.ingredient.list");
     }
 }
