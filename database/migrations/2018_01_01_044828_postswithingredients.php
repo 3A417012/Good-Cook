@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColletionTable extends Migration
+class Postswithingredients extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateColletionTable extends Migration
      */
     public function up()
     {
-        Schema::create('colletion', function (Blueprint $table) {
+        //
+        Schema::create('postswithingredients', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("user_id");
             $table->integer("post_id");
-            $table->integer("amount");
+            $table->integer("ingredient_id");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateColletionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colletion');
+        //
     }
 }
