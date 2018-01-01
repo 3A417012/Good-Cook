@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     Route::group(['prefix' => 'post'], function()
     {
         Route::get('/list', 'Admin\PostController@index')->name('admin.post.list');
+        Route::get('/add', 'Admin\PostController@add')->name('admin.post.add');
+        Route::post('/store','Admin\PostController@store')->name('admin.post.store');
     });
 
 

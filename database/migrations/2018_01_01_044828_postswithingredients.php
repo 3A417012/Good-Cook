@@ -14,7 +14,7 @@ class Postswithingredients extends Migration
     public function up()
     {
         //
-        Schema::create('postswithingredients', function (Blueprint $table) {
+        Schema::create('posts_ingredients', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("post_id");
             $table->integer("ingredient_id");

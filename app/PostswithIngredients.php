@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class PostswithIngredients extends Model
 {
     //
-    protected $table = 'postswithingredients';
+    protected $table = 'posts_ingredients';
+    
 
-    public function Ingredients()
+    public function Ingredient()
     {
-        return $this->hasOne('App\Ingredients',"id","ingredients_id");
+        return $this->hasOne('App\Ingredient',"id","ingredients_id");
     }
 
 }

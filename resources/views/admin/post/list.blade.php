@@ -15,7 +15,7 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.member.add')}}';return false;">新增會員</button>
+                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.post.add')}}';return false;">新增文章</button>
                     <table class="table table-hover">
                         <thead>
                         <tr>
