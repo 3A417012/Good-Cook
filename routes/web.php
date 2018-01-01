@@ -38,12 +38,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 
     Route::group(['prefix' => 'ingredient'], function()
     {
-        Route::get('/list', 'Admin\HomeController@ingredientlist')->name('admin.ingredient.list');
-        Route::get('/add', 'Admin\HomeController@ingredientadd')->name('admin.ingredient.add');
-        Route::post('/store','Admin\HomeController@ingredientstore')->name('admin.ingredient.store');
-        Route::get('/edit/{id}', 'Admin\HomeController@ingredientedit')->name('admin.ingredient.edit');
-        Route::post('/update/{id}', 'Admin\HomeController@ingredientupdate')->name('admin.ingredient.update');
-        Route::get('/delete/{id}', 'Admin\HomeController@ingredientdelete')->name('admin.ingredient.delete');
+        Route::get('/list', 'Admin\IngerdientController@list')->name('admin.ingredient.list');
+        Route::get('/add', 'Admin\IngerdientController@add')->name('admin.ingredient.add');
+        Route::post('/store','Admin\IngerdientController@store')->name('admin.ingredient.store');
+        Route::get('/edit/{id}', 'Admin\IngerdientController@edit')->name('admin.ingredient.edit');
+        Route::post('/update/{id}', 'Admin\IngerdientController@update')->name('admin.ingredient.update');
+        Route::get('/delete/{id}', 'Admin\IngerdientController@delete')->name('admin.ingredient.delete');
     });
 });
 
