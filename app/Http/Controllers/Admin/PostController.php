@@ -8,6 +8,7 @@ use App\Ingredient;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\PostswithIngredients;
+use Illuminate\Http\Request;
 
 class PostController extends AdminController
 {
@@ -25,5 +26,12 @@ class PostController extends AdminController
         return view("admin.post.edit")->with("cates",$cates);
     }
 
+    public function store(Request $request){
+        dd($this->findIngredient("西瓜"));
+    }
+
+    public function findIngredient($name){
+        return Ingredient::where("name",$name)->first();
+    }
 
 }

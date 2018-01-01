@@ -8,4 +8,6 @@ class Ingredient extends Model
 {
     //
     protected $table = 'ingredients';
+
+
 }
