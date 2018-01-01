@@ -22,7 +22,11 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 {
     Route::get('/', 'Admin\HomeController@index')->name('admin.home');
 
-    Route::get('/post/add', 'Admin\HomeController@postadd')->name('admin.post.add');
+    Route::group(['prefix' => 'post'], function()
+    {
+        Route::get('/list', 'Admin\PostController@index')->name('admin.post.list');
+    });
+
 
     Route::group(['prefix' => 'member'], function()
     {
