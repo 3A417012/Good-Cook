@@ -3,6 +3,7 @@
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class UserDatabaseSeeder extends Seeder
 {
@@ -17,13 +18,19 @@ class UserDatabaseSeeder extends Seeder
             0=>[
                 "name"=>"王小明",
                 "email"=>"ming@gmail.com",
-                "password"=>Crypt::encrypt("ming00"),
+                "password"=>hash::make("ming00"),
                 "level"=>"0",
             ],
             1=>[
                 "name"=>"佩佩",
                 "email"=>"pig@gmail.com",
-                "password"=>Crypt::encrypt("pig111"),
+                "password"=>hash::make("pig111"),
+                "level"=>"5",
+            ],
+            2=>[
+                "name"=>"佩佩",
+                "email"=>"nini@gmail.com",
+                "password"=>hash::make("nini"),
                 "level"=>"5",
             ],
         ];

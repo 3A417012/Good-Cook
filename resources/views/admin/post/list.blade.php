@@ -35,7 +35,7 @@
                                 <tr>
                                     <th scope="row">{{$post->title}}</th>
                                     <td>{{$post->cate->name}}</td>
-                                    <td>{{$post->description}}
+                                    <td>{{mb_substr($post->description,0,25,'utf8')}}
                                     </td>
                                     <td><span class="col-lg-6 icon-box"><img class="icon"  onclick="location.href='{{route('admin.post.edit',$post->id)}}';return false;"  src="{{asset("images/icon/edit-button.png")}}"> </span>
                                         <span class="col-lg-6 icon-box"><img class="icon"  onclick="location.href='{{route('admin.post.delete',$post->id)}}';return false;" src="{{asset("images/icon/delete-button.png")}}"></span></td>

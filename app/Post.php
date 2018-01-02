@@ -12,7 +12,15 @@ class Post extends Model
         return $this->hasOne('App\Category',"id","category_id");
     }
 
+    public function User(){
+        return $this->hasOne('App\User',"id","owner_id");
+    }
+
     public function Ingredients(){
         return $this->PostswithIngredients();
+    }
+
+    public function collections(){
+        return $this->hasMany('App\Colletion',"post_id","id");
     }
 }

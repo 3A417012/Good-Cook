@@ -16,7 +16,11 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-
+Route::get('/post/{id}', 'HomeController@post')->name('post');
+Route::get('/cate/{id}', 'HomeController@cate')->name('cate');
+Route::get('/like/list', 'HomeController@likelist')->name('likelist');
+Route::get('/like/{id}', 'HomeController@like')->name('like');
+Route::get('/search/{key}', 'HomeController@search')->name('search');
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
 {

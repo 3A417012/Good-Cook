@@ -18,7 +18,7 @@ class AdminController extends Controller
             "name" => "一般會員",
             "lists" => [
                 '文章管理' => 'admin.post.list',
-                '收藏管理' => 'admin.ingredient.list',
+//                '收藏管理' => 'admin.ingredient.list',
             ],
         ],
         5 => [
@@ -26,7 +26,7 @@ class AdminController extends Controller
             "name" => "管理員",
             "lists" => [
                 '文章管理' => 'admin.post.list',
-                '收藏管理' => 'admin.cate.list',
+//                '收藏管理' => 'admin.cate.list',
                 '會員管理' => 'admin.member.list',
                 '分類管理' => 'admin.cate.list',
                 '食材管理' => 'admin.ingredient.list',

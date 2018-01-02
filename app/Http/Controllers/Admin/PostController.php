@@ -23,7 +23,12 @@ class PostController extends AdminController
 
 
     public function index(){
-        $posts = $this->user->posts()->get();
+        if($this->user->level){
+            $posts = Post::all();
+        }else{
+            $posts = $this->user->posts()->get();
+        }
+
         return view("admin.post.list")->with("posts",$posts);
     }
 

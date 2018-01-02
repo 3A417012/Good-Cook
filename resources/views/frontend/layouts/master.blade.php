@@ -36,25 +36,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route("home")}}" style="color:#f1f1f1;"><h5>Good Cook</h5></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">清粥小菜</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">台灣料理</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#f1f1f1;">美式料理</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#f1f1f1;">食材</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">高麗菜</a>
-                        <a class="dropdown-item" href="#">青江菜</a>
-                    </div>
-                </li>
+                @foreach($cates as $cate)
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/cate/{{$cate->id}}" style="color:#f1f1f1;">{{$cate->name}}</a>
+                    </li>
+                @endforeach
             </ul>
             @if(Auth::user())
-                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>
+                <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="location.href='{{route('likelist')}}';return false;">收藏</button>
                 <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.home')}}';return false;">後台管理</button>
                 <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="document.getElementById('logout-form').submit();">登出</button>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

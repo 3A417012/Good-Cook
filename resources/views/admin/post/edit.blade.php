@@ -168,7 +168,7 @@
                                 <input type="text" class="form-control " id="ingredient_name" name="name" placeholder="食材名稱" >
                             </div>
                             <div class="col-4">
-                                <input type="text" class="form-control inputunit" name="unit" placeholder="食材單位">
+                                <input type="text" class="form-control inputunit" name="unit" placeholder="食材單位" value="公克">
                             </div>
                             <div class="col-4">
                                 <input type="text" class="form-control" id="formGroupExampleInput" name="heat" placeholder="食材熱量">

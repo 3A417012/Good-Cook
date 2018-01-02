@@ -26,7 +26,7 @@ class MemberController extends AdminController
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Crypt::encrypt($request->password);
+        $user->password = Hash::make($request->password);
         $user->level = $request->level;
         $user->save();
         return redirect()->route("admin.member.list")->with("message","新增成功");

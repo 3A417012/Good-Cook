@@ -17,7 +17,6 @@ class CreateColletionTable extends Migration
             $table->increments('id');
             $table->integer("user_id");
             $table->integer("post_id");
-            $table->integer("amount");
             $table->timestamps();
         });
     }

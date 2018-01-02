@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-7"></div>
         <div class="col-md-2">
-            <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>
+            {{--<button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="">收藏</button>--}}
 
             <button class="btn btn-outline my-2 my-sm-0 ml-1" style="background:#f1f1f1;" onclick="document.getElementById('logout-form').submit();">登出</button>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

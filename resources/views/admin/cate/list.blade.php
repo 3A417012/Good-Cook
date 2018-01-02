@@ -35,7 +35,7 @@
                             <tr>
                                 <td scope="row">{{$cate->id}}</td>
                                 <td>{{$cate->name}}</td>
-                                <td>{{$cate->description}}</td>
+                                <td>{{mb_substr($cate->description,0,25,'utf8')}}</td>
                                 <td>
                                     <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.edit',$cate->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
                                     <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.delete',$cate->id)}}'" src="{{asset("images/icon/delete-button.png")}}"></span>
