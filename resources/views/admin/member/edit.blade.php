@@ -11,7 +11,11 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-                    <form action="{{route("admin.ingredient.store")}}" method="post" >
+                    @if(isset($user))
+                        <form action="{{route("admin.member.update",$user->id)}}" method="post" >
+                    @else
+                        <form action="{{route("admin.member.store")}}" method="post" >
+                    @endif
                         {{csrf_field()}}
                         <div class="row">
                             <div class="upload-logo col-md-6">
@@ -20,17 +24,23 @@
                             <div class="form-g col-md-6">
                                 <div class="form-group">
                                     <label for="disabledSelect">姓名</label>
-                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="食材">
+                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" @if(isset($user)) value="{{$user->name}}" @endif>
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledSelect">Email</label>
-                                    <input type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="EX:顆,個,公克...">
+                                    <input type="text" name="email" class="form-control" id="formGroupExampleInput" @if(isset($user)) value="{{$user->email}}" @endif>
                                 </div>
+                                @if(!isset($user))
+                                <div class="form-group">
+                                    <label for="disabledSelect">密碼</label>
+                                    <input type="text" name="password" class="form-control" id="formGroupExampleInput" @if(isset($user)) value="{{$user->password}}" @endif>
+                                </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="exampleSelect1">等級</label>
-                                    <select class="form-control" id="exampleSelect1">
-                                        <option>會員</option>
-                                        <option>管理員</option>
+                                    <select name="level" class="form-control" id="exampleSelect1">
+                                            <option  value="0" @if(isset($user)) @if($user->level==0) selected @endif @endif>會員</option>
+                                            <option  value="5" @if(isset($user)) @if($user->level==5) selected @endif @endif>管理員</option>
                                     </select>
                                 </div>
 
