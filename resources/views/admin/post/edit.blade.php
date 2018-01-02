@@ -5,13 +5,16 @@
     border-bottom: 1px dotted gray;
     margin:0 4px 0 4px;
     }
+    .unit{
+        color:gray;
+    }
 @endsection
 @section("inner")
     <div class="container">
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-                    <form action="{{route("admin.post.store")}}" method="post">
+                    <form action="{{route("admin.post.store")}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="標題" name="title"><hr>
@@ -40,10 +43,10 @@
                                 <div class="col-md-12 row ingredients" data-row="1">
                                     <div class="ingredientbox row">
                                         <div class="col-6">
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="ingredient[]" placeholder="食材">
+                                            <input type="text" class="form-control ingredientinput" id="formGroupExampleInput" name="ingredient[]" placeholder="食材" onchange="findIng(this)">
                                         </div>
                                         <div class="col-4">
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="mount[]" placeholder="份量">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="mount[]" placeholder="份量"><span class="unit"></span>
                                         </div>
                                         <div class="col-2">
                                             <svg id="i-plus" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" onclick="adding()">
@@ -87,9 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <button type="submit" class="btn btn-secondary btn-lg btn-block mt-3">送出</button>
                     </form>
                 </div>
@@ -97,6 +98,31 @@
         </div>
     </div>
 
+
+    <div class="addmoreing" style="max-width: 88%;display: none;">
+        <form action="{{route("admin.ingredient.store")}}" method="post" class="ingredient_add">
+            {{csrf_field()}}
+            <div class="row">
+                <div class="form-g col-md-12 mt-3 ml-2">
+                    <div class="col-md-12 row " data-row="1">
+                        <div class=" row">
+                            <div class="col-4">
+                                <input type="text" class="form-control " id="ingredient_name" name="name" placeholder="食材名稱" >
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control inputunit" name="unit" placeholder="食材單位">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="formGroupExampleInput" name="heat" placeholder="食材熱量">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-secondary btn-sm btn-block mt-3 " onclick="ajaxIng()">送出</button>
+        </form>
+    </div>
 @endsection
 
 @section("javascript")
@@ -146,5 +172,44 @@
             }
             reader.readAsDataURL(obj.files[0]);
         }
+    }
+
+    var findIngobj;
+    function findIng(obj){
+        findIngobj = obj
+        $.ajax({
+            url: "/api/find/"+obj.value,
+            dataType: 'json',
+            success: function(_data) {
+                if(_data.status == "success"){
+                    $(obj).parent().parent().find(".unit").html(_data.data.unit);
+                }else{
+                    addmoreing(obj);
+                }
+            },
+        });
+    }
+
+    function addmoreing(obj){
+        layer.open({
+            type: 1,
+            skin: 'layui-layer-rim',
+            title: "新增食材",
+            area: ['420px', '240px'],
+            content: $(".addmoreing").html(),
+        });
+    }
+
+    function ajaxIng(){
+        $.ajax({
+            type: "POST",
+            url: '{{route("admin.ingredient.store")}}',
+            data: $(".ingredient_add").serialize(),
+            success: function(data)
+            {
+                layer.closeAll();
+                findIng(findIngobj);
+            }
+        });
     }
 @endsection

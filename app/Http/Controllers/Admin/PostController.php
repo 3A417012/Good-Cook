@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\PostswithIngredients;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends AdminController
 {
@@ -27,7 +28,14 @@ class PostController extends AdminController
     }
 
     public function store(Request $request){
-        dd($this->findIngredient("西瓜"));
+//        $post = new Post();
+//        $post->title = $request->title;
+//        $post->description = $request->description;
+//        $post->category_id = $request->category_id;
+//        $path = Storage::putFile('logo_pic', $request->file('logo_pic'));
+        $path = Storage::put('file', $request->file('logo_pic'), 'public');
+        $contents = Storage::url($path);
+        return $contents;
     }
 
     public function findIngredient($name){

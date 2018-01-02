@@ -61,4 +61,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function()
     });
 });
 
+Route::group(['prefix' => 'api'], function()
+{
+    Route::get('/find/{ingredient}', 'ApiController@findIngredient')->name('admin.api.findIngredient');
+});
+
 
