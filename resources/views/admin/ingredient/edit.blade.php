@@ -40,8 +40,7 @@
                             </div>
                         </div>
                         <button class="btn btn-secondary btn-lg btn-block mt-3" type="submit">送出</button>
-                        <hr>
-                        <button class="btn btn-secondary btn-lg btn-block mt-3" type="submit">送出</button>
+
                     </form>
                 </div>
             </div>
