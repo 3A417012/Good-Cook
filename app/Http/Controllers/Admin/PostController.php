@@ -10,7 +10,7 @@ use App\Post;
 use App\PostswithIngredients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Yish\Imgur\Facades\Upload;
+use Yish\Imgur\Facades\Upload as Imgur;
 
 class PostController extends AdminController
 {
@@ -35,7 +35,7 @@ class PostController extends AdminController
 //        $post->category_id = $request->category_id;
 //        $path = Storage::putFile('logo_pic', $request->file('logo_pic'));
 
-        $path = Upload::upload($request->file('logo_pic'));
+        $path = Imgur::upload($request->file('logo_pic'));
         return $path->link();
     }
 
