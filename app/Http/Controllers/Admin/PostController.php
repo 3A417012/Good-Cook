@@ -10,6 +10,7 @@ use App\Post;
 use App\PostswithIngredients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Yish\Imgur\Facades\Upload;
 
 class PostController extends AdminController
 {
@@ -33,9 +34,9 @@ class PostController extends AdminController
 //        $post->description = $request->description;
 //        $post->category_id = $request->category_id;
 //        $path = Storage::putFile('logo_pic', $request->file('logo_pic'));
-        $path = Storage::put('file', $request->file('logo_pic'), 'public');
-        $contents = Storage::url($path);
-        return $contents;
+
+        $path = Upload::upload($request->file('logo_pic'));
+        return $path->link();
     }
 
     public function findIngredient($name){
