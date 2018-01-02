@@ -46,7 +46,7 @@
                                             <input type="text" class="form-control ingredientinput" id="formGroupExampleInput" name="ingredient[]" placeholder="食材" onchange="findIng(this)">
                                         </div>
                                         <div class="col-4">
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="mount[]" placeholder="份量"><span class="unit"></span>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="amount[]" placeholder="份量"><span class="unit"></span>
                                         </div>
                                         <div class="col-2">
                                             <svg id="i-plus" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" onclick="adding()">

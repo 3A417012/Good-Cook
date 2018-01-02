@@ -29,14 +29,36 @@ class PostController extends AdminController
     }
 
     public function store(Request $request){
-//        $post = new Post();
-//        $post->title = $request->title;
-//        $post->description = $request->description;
-//        $post->category_id = $request->category_id;
-//        $path = Storage::putFile('logo_pic', $request->file('logo_pic'));
+        $post =  new Post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->category_id = $request->category_id;
+        if ($request->hasFile('logo_pic')) {
+            $logo_pic = Imgur::upload($request->file('logo_pic'));
+            $post->logo_pic = $logo_pic->link();
+        }
+        $steps = array();
+        foreach ($request->step as $key => $step){
+            $logo_pic = Imgur::upload($request->step_pic[$key]);
+            $arr = [
+                "description" => $step,
+                "pic" => $logo_pic->link(),
+            ];
+            array_push($steps,$arr);
+        }
+        $post->steps = json_encode($steps);
 
-        $path = Imgur::upload($request->file('logo_pic'));
-        return $path->link();
+        $ingredients = array();
+        foreach ($request->ingredient as $key => $ingredient){
+            $arr = [
+                "ingredient_id" => $this->findIngredient($ingredient)->id,
+                "amount" => $request->amount[$key],
+            ];
+            array_push($ingredients,$arr);
+        }
+        $post->ingredients = json_encode(ingredients);
+        $this->user->posts()->save($post);
+//        dd($request->all());
     }
 
     public function findIngredient($name){

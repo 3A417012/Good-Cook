@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('logo_pic');
             $table->string('description');
+            $table->string('steps');
+            $table->string('ingredients');
             $table->timestamps();
         });
     }
