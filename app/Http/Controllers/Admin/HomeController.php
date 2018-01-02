@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Ingredient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,5 +23,14 @@ class HomeController extends Controller
 
     public function ingredientadd(){
         return view("admin.ingredient.edit");
+    }
+
+    public function ingredientstore(Request $request){
+        $a = new Ingredient();
+        $a->name = $request->name;
+        $a->unit = $request->bbb;
+        $a->heat = $request->heat;
+        $a->save();
+        return redirect()->to("home");
     }
 }
