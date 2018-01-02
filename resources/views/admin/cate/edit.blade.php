@@ -11,13 +11,11 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
-
-                    @if(isset($ingredient))
-                        <form action="{{route("admin.ingredient.update",$ingredient->id)}}" method="post" >
+                    @if(isset($cate))
+                        <form action="{{route("admin.cate.update",$cate->id)}}" method="post" >
                     @else
-                        <form action="{{route("admin.ingredient.store")}}" method="post" >
+                        <form action="{{route("admin.cate.store")}}" method="post" >
                     @endif
-
                         {{csrf_field()}}
                         <div class="row">
                             <div class="upload-logo col-md-6">
@@ -25,22 +23,18 @@
                             </div>
                             <div class="form-g col-md-6">
                                 <div class="form-group">
-                                    <label for="disabledSelect">食材名稱</label>
-                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="食材" @if(isset($ingredient)) value="{{$ingredient->name}}" @endif>
+                                    <label for="disabledSelect">類別名稱</label>
+                                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="類別" @if(isset($cate)) value="{{$cate->name}}" @endif>
                                 </div>
                                 <div class="form-group">
-                                    <label for="disabledSelect">食材單位</label>
-                                    <input type="text" name="unit" class="form-control" id="formGroupExampleInput" placeholder="EX:顆,個,公克..." @if(isset($ingredient)) value="{{$ingredient->unit}}" @endif>
-                                </div>
-                                <div class="form-group">
-                                    <label for="disabledSelect">每單位/熱量</label>
-                                    <input type="text" name="heat" class="form-control" id="formGroupExampleInput" placeholder="EX:500卡" @if(isset($ingredient)) value="{{$ingredient->heat}}" @endif>
+                                    <label for="disabledSelect">類別敘述</label>
+                                    <input type="text" name="description" class="form-control" id="formGroupExampleInput" placeholder="美食速食"  @if(isset($cate)) value="{{$cate->description}}" @endif>
                                 </div>
 
                             </div>
                         </div>
-                        <button class="btn btn-secondary btn-lg btn-block mt-3" type="submit">送出</button>
                         <hr>
+
                         <button class="btn btn-secondary btn-lg btn-block mt-3" type="submit">送出</button>
                     </form>
                 </div>

@@ -20,25 +20,25 @@
                             <strong>{{session("message")}}</strong>
                         </div>
                     @endif
-                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.ingredient.add')}}';return false;">新增食材</button>
+                    <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.cate.add')}}';return false;">新增分類</button>
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>食材名稱</th>
-                            <th>食材單位</th>
-                            <th>每單位/卡</th>
+                            <th>#</th>
+                            <th>分類名稱</th>
+                            <th>簡介</th>
                             <th>選項</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($ingredients as $ingredient)
+                        @foreach($cates as $cate)
                             <tr>
-                                <td scope="row">{{$ingredient->name}}</td>
-                                <td>{{$ingredient->unit}}</td>
-                                <td>{{$ingredient->heat}}</td>
+                                <td scope="row">{{$cate->id}}</td>
+                                <td>{{$cate->name}}</td>
+                                <td>{{$cate->description}}</td>
                                 <td>
-                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.ingredient.edit',$ingredient->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
-                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.ingredient.delete',$ingredient->id)}}'" src="{{asset("images/icon/delete-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.edit',$cate->id)}}';return false;" src="{{asset("images/icon/edit-button.png")}}"></span>
+                                    <span class="col-lg-6 icon-box"><img class="icon" onclick="location.href='{{route('admin.cate.delete',$cate->id)}}'" src="{{asset("images/icon/delete-button.png")}}"></span>
                                 </td>
                             </tr>
                         @endforeach

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Ingredient;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
-class HomeController extends Controller
+class HomeController extends AdminController
 {
     //
+
     public function index(){
         return view("admin.index");
     }
@@ -17,20 +20,4 @@ class HomeController extends Controller
         return view("admin.post.edit");
     }
 
-    public function ingredientlist(){
-        return view("admin.ingredient.list");
-    }
-
-    public function ingredientadd(){
-        return view("admin.ingredient.edit");
-    }
-
-    public function ingredientstore(Request $request){
-        $a = new Ingredient();
-        $a->name = $request->name;
-        $a->unit = $request->bbb;
-        $a->heat = $request->heat;
-        $a->save();
-        return redirect()->to("home");
-    }
 }
