@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,8 @@ class AdminController extends Controller
             if(Auth::check()){
                 $this->user= Auth::user();
                 $this->list = $this->level[$this->user->level]["lists"];
+                $cates = Category::all();
+                View::share('cates', $cates);
                 View::share('list', $this->list);
             }
             return $next($request);

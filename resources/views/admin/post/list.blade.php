@@ -15,6 +15,11 @@
         <div class="row align-items-center justify-content-center col-md-12">
             <div class="card col-md-12">
                 <div class="card-body">
+                    @if(session("message"))
+                        <div class="alert alert-warning" role="alert">
+                            <strong>{{session("message")}}</strong>
+                        </div>
+                    @endif
                     <button class="btn btn-outline mb-1" style="background:#f1f1f1;" onclick="location.href='{{route('admin.post.add')}}';return false;">新增文章</button>
                     <table class="table table-hover">
                         <thead>
@@ -32,7 +37,8 @@
                                     <td>{{$post->cate->name}}</td>
                                     <td>{{$post->description}}
                                     </td>
-                                    <td><span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/edit-button.png")}}"> </span> <span class="col-lg-6 icon-box"><img class="icon" src="{{asset("images/icon/delete-button.png")}}"></span></td>
+                                    <td><span class="col-lg-6 icon-box"><img class="icon"  onclick="location.href='{{route('admin.post.edit',$post->id)}}';return false;"  src="{{asset("images/icon/edit-button.png")}}"> </span>
+                                        <span class="col-lg-6 icon-box"><img class="icon"  onclick="location.href='{{route('admin.post.delete',$post->id)}}';return false;" src="{{asset("images/icon/delete-button.png")}}"></span></td>
                                 </tr>
                             @endforeach
                         </tbody>
