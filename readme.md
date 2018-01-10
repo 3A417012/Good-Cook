@@ -26,10 +26,10 @@
 
 ## User data
 1. default user
-> ming@gmail.com ming00
+> 帳號:ming@gmail.com 密碼:ming00
 
-2. Admin (Or u can set up by ur self)
-> nini@gmail.com nini
+2. Admin (Or u can set up by ur self at step 7)
+> 帳號:nini@gmail.com 密碼:nini
 
 #### Designer
 - [Andrew Liao](https://github.com/img21326)
