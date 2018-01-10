@@ -14,7 +14,7 @@
 - 會員 顯示,新增,刪除,修改,等級
 
 
-## 網站使用
+## 網站安裝
 1. > git clone https://github.com/WISD-2017/wisd12.git
 2. > composer install
 3. > copy .env.example .env (For windows) cp .env.example .env(For Unix)
