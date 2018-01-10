@@ -21,7 +21,7 @@
 4. > modify .env (not need to input email field)
 5. > php artisan migrate
 6. > php artisan db:seed
-7. > (option) php.exe artisan admin:set {email} {password}  (make a admin for ur self)
+7. > (option) php artisan admin:set {email} {password}  (make a admin for ur self)
 8. > (option) php artisan serve (if u don't have the Apache software)
 
 ## User data
