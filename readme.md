@@ -1,6 +1,6 @@
 <p align="center"><img src="https://i.imgur.com/UwNermi.png"></p>
 
-# GoodFood
+# GoodCook
 
 一套互相分享食譜的網站。
 
